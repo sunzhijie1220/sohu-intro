@@ -1,0 +1,1976 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小明烧烤「招牌牛舌」新品上市与运营协同策略策划案</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #f39c12;
+            --dark-bg: #1a1a2e;
+            --card-bg: #16213e;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --accent-green: #27ae60;
+            --accent-blue: #3498db;
+            --accent-purple: #9b59b6;
+            --page-width: 210mm;
+            --page-height: 297mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+            background: #f5f5f5;
+            color: var(--text-primary);
+            line-height: 1.8;
+        }
+
+        /* 页面容器 - A4 尺寸 */
+        .page {
+            width: var(--page-width);
+            min-height: var(--page-height);
+            margin: 20px auto;
+            background: white;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 封面设计 */
+        .cover-page {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2c1810 50%, #1a1a2e 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 40px;
+        }
+
+        .cover-flame-top {
+            font-size: 80px;
+            margin-bottom: 30px;
+            animation: flicker 2s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.05); }
+        }
+
+        .cover-title {
+            font-size: 42px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #e74c3c, #f39c12, #e74c3c);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shine 3s linear infinite;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        @keyframes shine {
+            to { background-position: 200% center; }
+        }
+
+        .cover-subtitle {
+            font-size: 24px;
+            color: #bdc3c7;
+            margin-bottom: 60px;
+            font-weight: 300;
+        }
+
+        .cover-brand {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #e74c3c, #f39c12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(231, 76, 60, 0.4);
+        }
+
+        .cover-info {
+            margin-top: 60px;
+            padding-top: 40px;
+            border-top: 2px solid rgba(231, 76, 60, 0.3);
+            color: #7f8c8d;
+            font-size: 14px;
+        }
+
+        .cover-info p {
+            margin: 8px 0;
+        }
+
+        .cover-decoration {
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.05;
+        }
+
+        .cover-decoration.tl { top: 20px; left: 20px; }
+        .cover-decoration.br { bottom: 20px; right: 20px; }
+        .cover-decoration.tr { top: 20px; right: 20px; font-size: 100px; }
+        .cover-decoration.bl { bottom: 20px; left: 20px; font-size: 100px; }
+
+        /* 目录页 */
+        .toc-page {
+            padding: 60px 50px;
+        }
+
+        .toc-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            text-align: center;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 20px;
+        }
+
+        .toc-list {
+            list-style: none;
+        }
+
+        .toc-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            margin: 10px 0;
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.05), rgba(243, 156, 18, 0.05));
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .toc-item:hover {
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(243, 156, 18, 0.1));
+        }
+
+        .toc-item-number {
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-right: 15px;
+        }
+
+        .toc-item-title {
+            flex: 1;
+            font-weight: 500;
+        }
+
+        .toc-item-page {
+            color: #999;
+            font-size: 14px;
+        }
+
+        /* 内容页 */
+        .content-page {
+            padding: 50px;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .page-header h2 {
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .page-number {
+            color: #999;
+            font-size: 14px;
+        }
+
+        .section-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 30px 0 20px 0;
+            padding-left: 15px;
+            border-left: 5px solid var(--secondary-color);
+        }
+
+        .subsection-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--card-bg);
+            margin: 20px 0 12px 0;
+        }
+
+        .content-text {
+            margin: 15px 0;
+            text-align: justify;
+        }
+
+        /* 表格 */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 13px;
+        }
+
+        .data-table th {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .data-table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .data-table tbody tr:nth-child(even) {
+            background: #f9f9f9;
+        }
+
+        .data-table tbody tr:hover {
+            background: rgba(231, 76, 60, 0.05);
+        }
+
+        /* 高亮框 */
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(243, 156, 18, 0.1), rgba(231, 76, 60, 0.05));
+            border-left: 4px solid var(--secondary-color);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .highlight-box h4 {
+            color: var(--secondary-color);
+            margin-bottom: 12px;
+            font-weight: 600;
+        }
+
+        .highlight-box p {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* 信息卡片 */
+        .info-cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .info-card {
+            background: linear-gradient(135deg, rgba(231, 76, 60, 0.05), rgba(243, 156, 18, 0.05));
+            border: 2px solid var(--primary-color);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .info-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .info-card .metric {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin: 8px 0;
+        }
+
+        .info-card .label {
+            color: var(--text-secondary);
+            font-size: 12px;
+        }
+
+        /* 优先级标签 */
+        .priority-tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 600;
+            margin-right: 5px;
+        }
+
+        .priority-p0 {
+            background: #e74c3c;
+            color: white;
+        }
+
+        .priority-p1 {
+            background: #f39c12;
+            color: white;
+        }
+
+        .priority-p2 {
+            background: #3498db;
+            color: white;
+        }
+
+        /* 列表 */
+        .content-list {
+            margin: 15px 0 15px 30px;
+        }
+
+        .content-list li {
+            margin: 8px 0;
+            color: var(--text-secondary);
+        }
+
+        /* 流程图 */
+        .flow-diagram {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 20px 0;
+            padding: 20px;
+            background: #f9f9f9;
+            border-radius: 10px;
+        }
+
+        .flow-step {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 13px;
+        }
+
+        .flow-arrow {
+            font-size: 20px;
+            color: var(--secondary-color);
+        }
+
+        /* 封底 */
+        .back-cover {
+            background: linear-gradient(135deg, #1a1a2e 0%, #2c1810 50%, #1a1a2e 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 60px 40px;
+        }
+
+        .back-cover-brand {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #e74c3c, #f39c12);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 40px rgba(231, 76, 60, 0.4);
+        }
+
+        .back-cover-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .back-cover-slogan {
+            font-size: 16px;
+            color: #bdc3c7;
+            margin-bottom: 40px;
+            font-style: italic;
+        }
+
+        .back-cover-contact {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            padding: 25px 40px;
+            margin: 20px 0;
+        }
+
+        .back-cover-contact p {
+            color: #7f8c8d;
+            margin: 8px 0;
+            font-size: 14px;
+        }
+
+        .back-cover-contact strong {
+            color: var(--secondary-color);
+        }
+
+        .back-cover-footer {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid rgba(231, 76, 60, 0.3);
+            color: #555;
+            font-size: 12px;
+        }
+
+        /* 打印样式 */
+        @media print {
+            body {
+                background: white;
+            }
+
+            .page {
+                margin: 0;
+                box-shadow: none;
+                page-break-after: always;
+                break-after: page;
+            }
+
+            .page:last-child {
+                page-break-after: auto;
+                break-after: auto;
+            }
+
+            @page {
+                size: A4;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 封面 -->
+    <div class="page cover-page">
+        <span class="cover-decoration tl">🔥</span>
+        <span class="cover-decoration tr">🍢</span>
+        <span class="cover-decoration bl">🍖</span>
+        <span class="cover-decoration br">🔥</span>
+
+        <div class="cover-flame-top">🔥 🔥 🔥</div>
+
+        <div class="cover-brand">🍢</div>
+
+        <h1 class="cover-title">小明烧烤「招牌牛舌」<br>新品上市与运营协同策略</h1>
+
+        <p class="cover-subtitle">策划案完整版 · 2026 年 3 月</p>
+
+        <div class="cover-info">
+            <p><strong>版本号：</strong>V1.0 正式版</p>
+            <p><strong>编制日期：</strong>2026 年 3 月 31 日</p>
+            <p><strong>适用门店：</strong>小明烧烤旗舰店</p>
+            <p><strong>保密等级：</strong>内部资料 · 注意保管</p>
+        </div>
+    </div>
+
+    <!-- 目录页 -->
+    <div class="page toc-page">
+        <h2 class="toc-title">📋 目录 CONTENTS</h2>
+        <ul class="toc-list">
+            <li class="toc-item">
+                <span><span class="toc-item-number">概述</span><span class="toc-item-title">策划案逻辑与核心观点</span></span>
+                <span class="toc-item-page">P3</span>
+            </li>
+            <li class="toc-item">
+                <span><span class="toc-item-number">第 0 部分</span><span class="toc-item-title">问题诊断与现状分析</span></span>
+                <span class="toc-item-page">P4</span>
+            </li>
+            <li class="toc-item">
+                <span><span class="toc-item-number">第 1 部分</span><span class="toc-item-title">目标体系与 SMART 原则</span></span>
+                <span class="toc-item-page">P6</span>
+            </li>
+            <li class="toc-item">
+                <span><span class="toc-item-number">第 2 部分</span><span class="toc-item-title">关键假设与验证方案</span></span>
+                <span class="toc-item-page">P9</span>
+            </li>
+            <li class="toc-item">
+                <span><span class="toc-item-number">第 3 部分</span><span class="toc-item-title">策略选择与资源配置</span></span>
+                <span class="toc-item-page">P11</span>
+            </li>
+            <li class="toc-item">
+                <span><span class="toc-item-number">第 4 部分</span><span class="toc-item-title">实施路径与阶段规划</span></span>
+                <span class="toc-item-page">P14</span>
+            </li>
+            <li class="toc-item">
+                <span><span class="toc-item-number">第 5 部分</span><span class="toc-item-title">里程碑计划与时间表</span></span>
+                <span class="toc-item-page">P17</span>
+            </li>
+            <li class="toc-item">
+                <span><span class="toc-item-number">第 6 部分</span><span class="toc-item-title">风险评估与应对策略</span></span>
+                <span class="toc-item-page">P19</span>
+            </li>
+            <li class="toc-item">
+                <span><span class="toc-item-number">第 7 部分</span><span class="toc-item-title">协同机制与 RACI 矩阵</span></span>
+                <span class="toc-item-page">P22</span>
+            </li>
+            <li class="toc-item">
+                <span><span class="toc-item-number">第 8 部分</span><span class="toc-item-title">标准化 SOP 与知识沉淀</span></span>
+                <span class="toc-item-page">P24</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 概述 -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h2>📋 概述</h2>
+            <span class="page-number">3</span>
+        </div>
+
+        <div class="highlight-box" style="background: linear-gradient(135deg, rgba(231,76,60,0.1), rgba(243,156,18,0.1)); border-left-color: #e74c3c;">
+            <h4 style="color: #e74c3c;">💡 策划案核心逻辑</h4>
+            <p style="font-size: 15px; line-height: 2;">本策划案采用<strong>Stage-Gate 阶段门模型</strong>，从问题诊断出发，通过数据验证假设，制定可执行的策略方案，最终形成标准化 SOP。全案共 9 大部分，环环相扣，确保「招牌牛舌」新品上市成功。</p>
+        </div>
+
+        <h3 class="section-title">一、策划背景</h3>
+        <p class="content-text">小明烧烤「招牌牛舌」作为重点打造的新品，在上市前面临三大协同挑战：<strong>信息不同步、动作不协调、反馈不及时</strong>。研发、后厨、营销三支队伍节奏跑偏，亟需统一的策略框架进行统筹协调。</p>
+
+        <h3 class="section-title">二、策划案框架</h3>
+        <p class="content-text">本策划案共包含 9 个部分，遵循"问题→目标→验证→策略→路径→风险→协同→标准"的逻辑链条：</p>
+        <ul class="content-list">
+            <li><strong>第 0 部分</strong>：问题诊断与现状分析——识别核心痛点和机会点</li>
+            <li><strong>第 1 部分</strong>：目标体系与 SMART 原则——建立可衡量的目标体系</li>
+            <li><strong>第 2 部分</strong>：关键假设与验证方案——用数据验证策略假设</li>
+            <li><strong>第 3 部分</strong>：策略选择与资源配置——确定最优策略组合</li>
+            <li><strong>第 4 部分</strong>：实施路径与阶段规划——明确执行路径和时间表</li>
+            <li><strong>第 5 部分</strong>：里程碑计划——设置关键节点和验收标准</li>
+            <li><strong>第 6 部分</strong>：风险评估与应对——基于 ISO31000 框架识别风险</li>
+            <li><strong>第 7 部分</strong>：协同机制与 RACI 矩阵——明确责任分工</li>
+            <li><strong>第 8 部分</strong>：标准化 SOP——形成可复制的运营标准</li>
+        </ul>
+
+        <h3 class="section-title">三、方法论</h3>
+        <div class="info-cards">
+            <div class="info-card">
+                <h4>SMART 目标原则</h4>
+                <p class="label">Specific 具体 · Measurable 可衡量 · Achievable 可实现 · Relevant 相关 · Time-bound 有时限</p>
+            </div>
+            <div class="info-card">
+                <h4>RACI 责任矩阵</h4>
+                <p class="label">Responsible 负责 · Accountable 审批 · Consulted 咨询 · Informed 知悉</p>
+            </div>
+            <div class="info-card">
+                <h4>Stage-Gate 阶段门</h4>
+                <p class="label">阶段 1 筹备→阶段 2 试销→阶段 3 推广→阶段 4 复盘</p>
+            </div>
+            <div class="info-card">
+                <h4>HACCP 食安体系</h4>
+                <p class="label">4 个 CCP 关键控制点 · 全流程监控</p>
+            </div>
+        </div>
+
+        <h3 class="section-title">四、预算概览</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>策略类别</th>
+                    <th>预算金额</th>
+                    <th>占比</th>
+                    <th>优先级</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>供应链优化</td>
+                    <td>¥15,000</td>
+                    <td>36.1%</td>
+                    <td><span class="priority-tag priority-p0">P0 紧急</span></td>
+                </tr>
+                <tr>
+                    <td>产能提升</td>
+                    <td>¥12,800</td>
+                    <td>30.8%</td>
+                    <td><span class="priority-tag priority-p0">P0 紧急</span></td>
+                </tr>
+                <tr>
+                    <td>协同机制</td>
+                    <td>¥6,500</td>
+                    <td>15.7%</td>
+                    <td><span class="priority-tag priority-p1">P1 重要</span></td>
+                </tr>
+                <tr>
+                    <td>营销推广</td>
+                    <td>¥5,200</td>
+                    <td>12.5%</td>
+                    <td><span class="priority-tag priority-p1">P1 重要</span></td>
+                </tr>
+                <tr>
+                    <td>风险储备</td>
+                    <td>¥2,000</td>
+                    <td>4.9%</td>
+                    <td><span class="priority-tag priority-p2">P2 一般</span></td>
+                </tr>
+                <tr style="background: rgba(231,76,60,0.1); font-weight: 700;">
+                    <td>合计</td>
+                    <td>¥41,500</td>
+                    <td>100%</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 第 0 部分：问题诊断与现状分析 -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h2>✅ 第 0 部分 问题诊断与现状分析</h2>
+            <span class="page-number">4</span>
+        </div>
+
+        <h3 class="section-title">0.1 业务层面问题</h3>
+
+        <h4 class="subsection-title">0.1.1 供应链风险</h4>
+        <p class="content-text">牛舌原料依赖单一供应商，存在断供风险。根据试运营数据分析：</p>
+        <ul class="content-list">
+            <li><strong>供应商集中度：</strong>100% 依赖现有供应商，无备选方案</li>
+            <li><strong>采购周期：</strong>常规采购周期 3-5 天，紧急补货需 1-2 天</li>
+            <li><strong>库存周转：</strong>平均库存周转天数 4.2 天，安全库存水位不足</li>
+            <li><strong>品质波动：</strong>近 30 天内品质不达标批次占比 8.3%</li>
+        </ul>
+
+        <div class="highlight-box">
+            <h4>⚠️ 风险等级评估</h4>
+            <p><strong>风险等级：</strong><span style="color: #e74c3c;">高</span> | <strong>发生概率：</strong>中 | <strong>影响程度：</strong>严重</p>
+            <p><strong>建议措施：</strong>立即启动备选供应商开发，建立安全库存机制</p>
+        </div>
+
+        <h4 class="subsection-title">0.1.2 产能瓶颈</h4>
+        <p class="content-text">后厨产能不足，高峰期出餐速度慢，影响顾客体验：</p>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>时段</th>
+                    <th>订单量</th>
+                    <th>产能上限</th>
+                    <th>缺口</th>
+                    <th>平均等待时长</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>11:30-13:00</td>
+                    <td>45 单</td>
+                    <td>38 单</td>
+                    <td style="color: #e74c3c;">-7 单</td>
+                    <td style="color: #e74c3c;">22 分钟</td>
+                </tr>
+                <tr>
+                    <td>17:30-19:30</td>
+                    <td>68 单</td>
+                    <td>52 单</td>
+                    <td style="color: #e74c3c;">-16 单</td>
+                    <td style="color: #e74c3c;">35 分钟</td>
+                </tr>
+                <tr>
+                    <td>20:00-22:00</td>
+                    <td>55 单</td>
+                    <td>48 单</td>
+                    <td style="color: #e74c3c;">-7 单</td>
+                    <td style="color: #e74c3c;">25 分钟</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4 class="subsection-title">0.1.3 成本结构</h4>
+        <p class="content-text">牛舌新品成本占比偏高，利润空间受限：</p>
+        <ul class="content-list">
+            <li><strong>原料成本：</strong>占售价 42%，高于目标值 35%</li>
+            <li><strong>人工成本：</strong>处理牛舌耗时较长，人工成本占 18%</li>
+            <li><strong>能耗成本：</strong>炭火烤制能耗占 5%</li>
+            <li><strong>目标毛利率：</strong>65%，当前实际毛利率 55%</li>
+        </ul>
+
+        <h3 class="section-title" style="page-break-inside: avoid;">0.2 协同层面问题</h3>
+
+        <div class="info-cards" style="page-break-inside: avoid;">
+            <div class="info-card">
+                <h4>信息不同步</h4>
+                <p class="metric">48 小时</p>
+                <p class="label">营销活动方案平均 48 小时后才传达至后厨</p>
+            </div>
+            <div class="info-card">
+                <h4>变更无流程</h4>
+                <p class="metric">7 次</p>
+                <p class="label">近 2 周发生 7 次临时变更，均无书面记录</p>
+            </div>
+            <div class="info-card">
+                <h4>反馈闭环缺失</h4>
+                <p class="metric">0%</p>
+                <p class="label">客诉问题 0% 形成闭环改进</p>
+            </div>
+            <div class="info-card">
+                <h4>数据孤岛</h4>
+                <p class="metric">3 套</p>
+                <p class="label">3 套独立表格，数据口径不一致</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第 1 部分：目标体系 -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h2>🎯 第 1 部分 目标体系与 SMART 原则</h2>
+            <span class="page-number">6</span>
+        </div>
+
+        <h3 class="section-title">1.1 总体目标</h3>
+        <div class="highlight-box" style="border-left-color: #27ae60;">
+            <h4 style="color: #27ae60;">🎯 核心目标</h4>
+            <p style="font-size: 16px;"><strong>确保「招牌牛舌」新品上市成功，实现日均销售 50 份，客户满意度≥90%，毛利率≥60%，并在 30 天内形成标准化运营体系。</strong></p>
+        </div>
+
+        <h3 class="section-title">1.2 SMART 目标体系</h3>
+
+        <h4 class="subsection-title">1.2.1 销售目标（S-Specific 具体）</h4>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>周期</th>
+                    <th>日均销量</th>
+                    <th>月销售额</th>
+                    <th>市场份额</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>第 1 周（试销）</td>
+                    <td>20 份</td>
+                    <td>¥12,600</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>第 2-4 周（推广）</td>
+                    <td>35 份</td>
+                    <td>¥66,150</td>
+                    <td>8%</td>
+                </tr>
+                <tr>
+                    <td>第 2-3 月（稳定）</td>
+                    <td>50 份</td>
+                    <td>¥94,500</td>
+                    <td>15%</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4 class="subsection-title">1.2.2 质量目标（M-Measurable 可衡量）</h4>
+        <ul class="content-list">
+            <li><strong>客户满意度：</strong>NPS 净推荐值≥70，满意度≥90%</li>
+            <li><strong>出品合格率：</strong>≥98%，客诉率≤2%</li>
+            <li><strong>食品安全：</strong>0 事故，CCP 关键点 100% 达标</li>
+            <li><strong>出品一致性：</strong>口味评分标准差≤0.5（5 分制）</li>
+        </ul>
+
+        <h4 class="subsection-title">1.2.3 效率目标（A-Achievable 可实现）</h4>
+        <ul class="content-list">
+            <li><strong>出餐时效：</strong>牛舌单品出餐≤8 分钟，套餐≤12 分钟</li>
+                    <li><strong>产能利用率：</strong>高峰期≥85%，平峰期≥60%</li>
+                    <li><strong>人效：</strong>单人人均产出≥¥800/天</li>
+                    <li><strong>坪效：</strong>≥¥120/㎡/天</li>
+                </ul>
+
+                <h4 class="subsection-title">1.2.4 财务目标（R-Relevant 相关）</h4>
+                <div class="info-cards">
+                    <div class="info-card">
+                        <h4>毛利率目标</h4>
+                        <p class="metric">≥60%</p>
+                        <p class="label">通过供应链优化和标准化操作实现</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>投资回报</h4>
+                        <p class="metric">ROI≥150%</p>
+                        <p class="label">3 个月内收回设备投入成本</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>成本占比</h4>
+                        <p class="metric">≤40%</p>
+                        <p class="label">原料 + 人工 + 能耗总成本占比</p>
+                    </div>
+                    <div class="info-card">
+                        <h4>损耗率</h4>
+                        <p class="metric">≤3%</p>
+                        <p class="label">通过精准订货和先进先出控制</p>
+                    </div>
+                </div>
+
+                <h4 class="subsection-title">1.2.5 时间节点（T-Time-bound 有时限）</h4>
+                <div class="flow-diagram">
+                    <div class="flow-step">
+                        <div>阶段一</div>
+                        <div style="font-size:12px;opacity:0.9;">筹备期</div>
+                        <div style="font-size:11px;opacity:0.8;">第 1 周</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div>阶段二</div>
+                        <div style="font-size:12px;opacity:0.9;">试销期</div>
+                        <div style="font-size:11px;opacity:0.8;">第 2 周</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div>阶段三</div>
+                        <div style="font-size:12px;opacity:0.9;">推广期</div>
+                        <div style="font-size:11px;opacity:0.8;">第 3-4 周</div>
+                    </div>
+                    <div class="flow-arrow">→</div>
+                    <div class="flow-step">
+                        <div>阶段四</div>
+                        <div style="font-size:12px;opacity:0.9;">稳定期</div>
+                        <div style="font-size:11px;opacity:0.8;">第 2-3 月</div>
+                    </div>
+                </div>
+
+                <h3 class="section-title">1.3 目标优先级</h3>
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>优先级</th>
+                            <th>目标类别</th>
+                            <th>具体指标</th>
+                            <th>权重</th>
+                            <th>责任人</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="priority-tag priority-p0">P0</span></td>
+                            <td>食品安全</td>
+                            <td>0 事故，CCP100% 达标</td>
+                            <td>30%</td>
+                            <td>店长</td>
+                        </tr>
+                        <tr>
+                            <td><span class="priority-tag priority-p0">P0</span></td>
+                            <td>销售达成</td>
+                            <td>日均 50 份</td>
+                            <td>25%</td>
+                            <td>营销负责人</td>
+                        </tr>
+                        <tr>
+                            <td><span class="priority-tag priority-p1">P1</span></td>
+                            <td>毛利率</td>
+                            <td>≥60%</td>
+                            <td>20%</td>
+                            <td>财务负责人</td>
+                        </tr>
+                        <tr>
+                            <td><span class="priority-tag priority-p1">P1</span></td>
+                            <td>客户满意度</td>
+                            <td>≥90%</td>
+                            <td>15%</td>
+                            <td>店长</td>
+                        </tr>
+                        <tr>
+                            <td><span class="priority-tag priority-p2">P2</span></td>
+                            <td>效率提升</td>
+                            <td>出餐≤8 分钟</td>
+                            <td>10%</td>
+                            <td>后厨主管</td>
+                        </tr>
+                    </tbody>
+                </table>
+    </div>
+
+    <!-- 第 2 部分：关键假设与验证 -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h2>🧪 第 2 部分 关键假设与验证方案</h2>
+            <span class="page-number">9</span>
+        </div>
+
+        <h3 class="section-title">2.1 核心假设清单</h3>
+
+        <h4 class="subsection-title">假设 H1：市场需求假设</h4>
+        <div class="highlight-box">
+            <h4>📊 假设内容</h4>
+            <p><strong>假设：</strong>目标客群对牛舌品类的接受度≥70%，愿意支付的平均价格区间为¥18-25/份。</p>
+            <p><strong>验证方法：</strong>问卷调研 + 试销数据</p>
+            <p><strong>验收标准：</strong>试销期购买转化率≥25%，复购率≥30%</p>
+        </div>
+
+        <h4 class="subsection-title">假设 H2：产能假设</h4>
+        <div class="highlight-box">
+            <h4>📊 假设内容</h4>
+            <p><strong>假设：</strong>增加 1 名帮厨 +1 台烤炉后，高峰期产能可提升 40%。</p>
+            <p><strong>验证方法：</strong>产能压力测试</p>
+            <p><strong>验收标准：</strong>高峰期出餐时效≤10 分钟，订单满足率≥95%</p>
+        </div>
+
+        <h4 class="subsection-title">假设 H3：供应链假设</h4>
+        <div class="highlight-box">
+            <h4>📊 假设内容</h4>
+            <p><strong>假设：</strong>开发 2 家备选供应商后，断供风险可降低 90%。</p>
+            <p><strong>验证方法：</strong>供应商试供货 + 品质对比</p>
+            <p><strong>验收标准：</strong>备选供应商品质评分≥主供应商的 90%，价格差异≤5%</p>
+        </div>
+
+        <h4 class="subsection-title">假设 H4：营销假设</h4>
+        <div class="highlight-box">
+            <h4>📊 假设内容</h4>
+            <p><strong>假设：</strong>新品上市推广活动可带来 30% 的新客流量提升。</p>
+            <p><strong>验证方法：</strong>A/B 测试 + 客流统计</p>
+            <p><strong>验收标准：</strong>推广期间新客占比≥40%，活动 ROI≥3:1</p>
+        </div>
+
+        <h3 class="section-title">2.2 验证实验设计</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>假设编号</th>
+                    <th>实验类型</th>
+                    <th>样本量</th>
+                    <th>实验周期</th>
+                    <th>数据指标</th>
+                    <th>负责人</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>H1</td>
+                    <td>问卷调研</td>
+                    <td>200 份</td>
+                    <td>3 天</td>
+                    <td>接受度、支付意愿</td>
+                    <td>营销组</td>
+                </tr>
+                <tr>
+                    <td>H1</td>
+                    <td>试销测试</td>
+                    <td>7 天</td>
+                    <td>7 天</td>
+                    <td>转化率、复购率</td>
+                    <td>运营组</td>
+                </tr>
+                <tr>
+                    <td>H2</td>
+                    <td>产能测试</td>
+                    <td>5 个高峰时段</td>
+                    <td>5 天</td>
+                    <td>出餐时效、产能利用率</td>
+                    <td>后厨组</td>
+                </tr>
+                <tr>
+                    <td>H3</td>
+                    <td>样品测试</td>
+                    <td>3 家供应商</td>
+                    <td>7 天</td>
+                    <td>品质评分、价格对比</td>
+                    <td>采购组</td>
+                </tr>
+                <tr>
+                    <td>H4</td>
+                    <td>A/B 测试</td>
+                    <td>2 周</td>
+                    <td>14 天</td>
+                    <td>客流量、ROI</td>
+                    <td>营销组</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="section-title">2.3 验证结果应用</h3>
+        <ul class="content-list">
+            <li><strong>假设通过：</strong>按原计划推进，进入下一阶段</li>
+            <li><strong>假设部分通过：</strong>调整策略参数后继续</li>
+            <li><strong>假设未通过：</strong>触发阶段门评审，重新评估策略方向</li>
+        </ul>
+
+        <div class="highlight-box" style="border-left-color: #27ae60;">
+            <h4 style="color: #27ae60;">✅ 决策机制</h4>
+            <p>每个假设验证完成后 24 小时内召开评审会，由店长、研发负责人、运营负责人共同决策是否进入下一阶段。</p>
+        </div>
+    </div>
+
+    <!-- 第 3 部分：策略选择与资源配置 -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h2>💡 第 3 部分 策略选择与资源配置</h2>
+            <span class="page-number">11</span>
+        </div>
+
+        <h3 class="section-title">3.1 五大核心策略</h3>
+
+        <h4 class="subsection-title">策略一：供应链优化策略 <span class="priority-tag priority-p0">P0</span></h4>
+        <ul class="content-list">
+            <li><strong>目标：</strong>降低断供风险，提升原料品质稳定性</li>
+            <li><strong>措施：</strong>
+                <ul class="content-list">
+                    <li>开发 2 家备选供应商，形成"1 主 2 备"格局</li>
+                    <li>建立安全库存机制，保持 7 天安全库存</li>
+                    <li>签订品质协议，明确验收标准和退换货流程</li>
+                    <li>每周进行供应商绩效评估</li>
+                </ul>
+            </li>
+            <li><strong>预算：</strong>¥15,000（样品采购 + 库存占用资金）</li>
+            <li><strong>负责人：</strong>采购主管</li>
+            <li><strong>完成时间：</strong>第 2 周前</li>
+        </ul>
+
+        <h4 class="subsection-title">策略二：产能提升策略 <span class="priority-tag priority-p0">P0</span></h4>
+        <ul class="content-list">
+            <li><strong>目标：</strong>解决高峰期产能不足问题</li>
+            <li><strong>措施：</strong>
+                <ul class="content-list">
+                    <li>增加 1 名帮厨（兼职），高峰期支援</li>
+                    <li>增购 1 台烤炉，提升并行处理能力</li>
+                    <li>优化牛舌处理 SOP，减少非必要动作</li>
+                    <li>实施预准备机制，平峰期完成基础处理</li>
+                </ul>
+            </li>
+            <li><strong>预算：</strong>¥12,800（烤炉¥8,000+ 人工¥4,800/月）</li>
+            <li><strong>负责人：</strong>后厨主管</li>
+            <li><strong>完成时间：</strong>第 1 周前</li>
+        </ul>
+
+        <h4 class="subsection-title">策略三：协同机制策略 <span class="priority-tag priority-p1">P1</span></h4>
+        <ul class="content-list">
+            <li><strong>目标：</strong>解决信息不同步、变更无流程问题</li>
+            <li><strong>措施：</strong>
+                <ul class="content-list">
+                    <li>建立每日站会机制（9:00，10 分钟）</li>
+                    <li>实施变更管理流程，所有变更需书面确认</li>
+                    <li>建立统一数据看板，实时同步关键指标</li>
+                    <li>设置周例会，复盘本周问题并规划下周工作</li>
+                </ul>
+            </li>
+            <li><strong>预算：</strong>¥6,500（看板系统 + 培训）</li>
+            <li><strong>负责人：</strong>店长</li>
+            <li><strong>完成时间：</strong>第 1 周启动，持续优化</li>
+        </ul>
+
+        <h4 class="subsection-title">策略四：营销推广策略 <span class="priority-tag priority-p1">P1</span></h4>
+        <ul class="content-list">
+            <li><strong>目标：</strong>提升新品知名度，驱动销售增长</li>
+            <li><strong>措施：</strong>
+                <ul class="content-list">
+                    <li>小红书探店合作（5 位 KOC）</li>
+                    <li>抖音短视频投放（本地定向）</li>
+                    <li>会员专享尝鲜价（第 1 周 8.8 折）</li>
+                    <li>套餐组合促销（牛舌 + 招牌串）</li>
+                </ul>
+            </li>
+            <li><strong>预算：</strong>¥5,200</li>
+            <li><strong>负责人：</strong>营销负责人</li>
+            <li><strong>完成时间：</strong>第 2-4 周</li>
+        </ul>
+
+        <h4 class="subsection-title">策略五：成本优化策略 <span class="priority-tag priority-p2">P2</span></h4>
+        <ul class="content-list">
+            <li><strong>目标：</strong>提升毛利率至 60% 以上</li>
+            <li><strong>措施：</strong>
+                <ul class="content-list">
+                    <li>优化牛舌切割规格，提升出品率</li>
+                    <li>实施精准订货，降低损耗率至≤3%</li>
+                    <li>优化排班，提升人效</li>
+                    <li>能源管理，减少非必要能耗</li>
+                </ul>
+            </li>
+            <li><strong>预算：</strong>¥2,000（培训 + 激励）</li>
+            <li><strong>负责人：</strong>财务负责人</li>
+            <li><strong>完成时间：</strong>持续优化</li>
+        </ul>
+
+        <h3 class="section-title">3.2 资源投入汇总</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>策略类别</th>
+                    <th>人力投入</th>
+                    <th>设备投入</th>
+                    <th>资金投入</th>
+                    <th>时间投入</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>供应链优化</td>
+                    <td>采购主管 50%</td>
+                    <td>-</td>
+                    <td>¥15,000</td>
+                    <td>2 周</td>
+                </tr>
+                <tr>
+                    <td>产能提升</td>
+                    <td>后厨主管 30% + 帮厨 1 名</td>
+                    <td>烤炉 1 台</td>
+                    <td>¥12,800</td>
+                    <td>1 周</td>
+                </tr>
+                <tr>
+                    <td>协同机制</td>
+                    <td>店长 20% + 全员</td>
+                    <td>看板系统</td>
+                    <td>¥6,500</td>
+                    <td>持续</td>
+                </tr>
+                <tr>
+                    <td>营销推广</td>
+                    <td>营销负责人 40%</td>
+                    <td>-</td>
+                    <td>¥5,200</td>
+                    <td>3 周</td>
+                </tr>
+                <tr>
+                    <td>成本优化</td>
+                    <td>财务负责人 20%</td>
+                    <td>-</td>
+                    <td>¥2,000</td>
+                    <td>持续</td>
+                </tr>
+                <tr style="font-weight: 700; background: rgba(231,76,60,0.05);">
+                    <td>合计</td>
+                    <td>5 人</td>
+                    <td>1 台</td>
+                    <td>¥41,500</td>
+                    <td>-</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 第 4 部分：实施路径与阶段规划 -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h2>📅 第 4 部分 实施路径与阶段规划</h2>
+            <span class="page-number">14</span>
+        </div>
+
+        <h3 class="section-title">4.1 四阶段实施路径</h3>
+
+        <div class="highlight-box" style="background: linear-gradient(135deg, rgba(52,152,219,0.1), rgba(41,128,185,0.05)); border-left-color: #3498db;">
+            <h4 style="color: #3498db;">🗺️ 实施路径总览</h4>
+            <div class="flow-diagram" style="background: transparent; padding: 0;">
+                <div class="flow-step" style="min-width: 100px;">
+                    <div>第一阶段</div>
+                    <div style="font-size:11px;">筹备期</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step" style="min-width: 100px;">
+                    <div>第二阶段</div>
+                    <div style="font-size:11px;">试销期</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step" style="min-width: 100px;">
+                    <div>第三阶段</div>
+                    <div style="font-size:11px;">推广期</div>
+                </div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step" style="min-width: 100px;">
+                    <div>第四阶段</div>
+                    <div style="font-size:11px;">稳定期</div>
+                </div>
+            </div>
+        </div>
+
+        <h4 class="subsection-title">第一阶段：筹备期（第 1 周）</h4>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>任务编号</th>
+                    <th>任务名称</th>
+                    <th>交付物</th>
+                    <th>责任人</th>
+                    <th>完成时间</th>
+                    <th>状态</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>T1.1</td>
+                    <td>供应商开发与评估</td>
+                    <td>供应商评估报告</td>
+                    <td>采购主管</td>
+                    <td>第 3 天</td>
+                    <td><span class="priority-tag priority-p0">待启动</span></td>
+                </tr>
+                <tr>
+                    <td>T1.2</td>
+                    <td>设备采购与安装</td>
+                    <td>新烤炉投入使用</td>
+                    <td>后厨主管</td>
+                    <td>第 5 天</td>
+                    <td><span class="priority-tag priority-p0">待启动</span></td>
+                </tr>
+                <tr>
+                    <td>T1.3</td>
+                    <td>人员招聘与培训</td>
+                    <td>培训考核通过</td>
+                    <td>店长</td>
+                    <td>第 5 天</td>
+                    <td><span class="priority-tag priority-p0">待启动</span></td>
+                </tr>
+                <tr>
+                    <td>T1.4</td>
+                    <td>SOP 文件编制</td>
+                    <td>牛舌处理 SOP 文档</td>
+                    <td>研发组</td>
+                    <td>第 4 天</td>
+                    <td><span class="priority-tag priority-p1">待启动</span></td>
+                </tr>
+                <tr>
+                    <td>T1.5</td>
+                    <td>营销物料准备</td>
+                    <td>海报、菜单、优惠券</td>
+                    <td>营销组</td>
+                    <td>第 6 天</td>
+                    <td><span class="priority-tag priority-p1">待启动</span></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4 class="subsection-title">第二阶段：试销期（第 2 周）</h4>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>任务编号</th>
+                    <th>任务名称</th>
+                    <th>交付物</th>
+                    <th>责任人</th>
+                    <th>完成时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>T2.1</td>
+                    <td>限量试销（每日 20 份）</td>
+                    <td>试销数据报告</td>
+                    <td>运营组</td>
+                    <td>第 7-9 天</td>
+                </tr>
+                <tr>
+                    <td>T2.2</td>
+                    <td>客户反馈收集</td>
+                    <td>反馈问卷≥100 份</td>
+                    <td>营销组</td>
+                    <td>第 7-9 天</td>
+                </tr>
+                <tr>
+                    <td>T2.3</td>
+                    <td>产能压力测试</td>
+                    <td>产能测试报告</td>
+                    <td>后厨组</td>
+                    <td>第 8 天</td>
+                </tr>
+                <tr>
+                    <td>T2.4</td>
+                    <td>阶段评审会</td>
+                    <td>评审会议纪要</td>
+                    <td>店长</td>
+                    <td>第 10 天</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4 class="subsection-title">第三阶段：推广期（第 3-4 周）</h4>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>任务编号</th>
+                    <th>任务名称</th>
+                    <th>交付物</th>
+                    <th>责任人</th>
+                    <th>完成时间</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>T3.1</td>
+                    <td>全渠道营销推广</td>
+                    <td>曝光量≥50,000</td>
+                    <td>营销组</td>
+                    <td>第 11-21 天</td>
+                </tr>
+                <tr>
+                    <td>T3.2</td>
+                    <td>日销提升至 35 份</td>
+                    <td>销售日报</td>
+                    <td>运营组</td>
+                    <td>第 14 天</td>
+                </tr>
+                <tr>
+                    <td>T3.3</td>
+                    <td>会员活动运营</td>
+                    <td>新增会员≥200 人</td>
+                    <td>营销组</td>
+                    <td>第 11-21 天</td>
+                </tr>
+                <tr>
+                    <td>T3.4</td>
+                    <td>成本优化实施</td>
+                    <td>成本分析周报</td>
+                    <td>财务组</td>
+                    <td>第 14/21 天</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4 class="subsection-title">第四阶段：稳定期（第 2-3 月）</h4>
+        <ul class="content-list">
+            <li><strong>目标：</strong>日销稳定在 50 份，毛利率≥60%</li>
+            <li><strong>重点工作：</strong>
+                <ul class="content-list">
+                    <li>持续监控核心指标，确保达成目标</li>
+                    <li>优化 SOP，提升运营效率</li>
+                    <li>收集并分析客户反馈，持续改进</li>
+                    <li>准备复盘报告，总结成功经验</li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 第 5 部分：里程碑计划 -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h2>📅 第 5 部分 里程碑计划与时间表</h2>
+            <span class="page-number">17</span>
+        </div>
+
+        <h3 class="section-title">5.1 关键里程碑</h3>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>里程碑编号</th>
+                    <th>里程碑名称</th>
+                    <th>计划日期</th>
+                    <th>验收标准</th>
+                    <th>责任人</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr style="background: rgba(231,76,60,0.05);">
+                    <td colspan="5" style="font-weight: 600; color: #e74c3c;">🚩 第一阶段：筹备期里程碑</td>
+                </tr>
+                <tr>
+                    <td>M1</td>
+                    <td>供应链就绪</td>
+                    <td>第 3 天</td>
+                    <td>主供应商 +2 家备选签约完成，安全库存建立</td>
+                    <td>采购主管</td>
+                </tr>
+                <tr>
+                    <td>M2</td>
+                    <td>产能就绪</td>
+                    <td>第 5 天</td>
+                    <td>新烤炉安装完成，帮厨培训考核通过</td>
+                    <td>后厨主管</td>
+                </tr>
+                <tr>
+                    <td>M3</td>
+                    <td>运营就绪</td>
+                    <td>第 6 天</td>
+                    <td>SOP 文档发布，营销物料到位，全员培训完成</td>
+                    <td>店长</td>
+                </tr>
+                <tr style="background: rgba(243,156,18,0.05);">
+                    <td colspan="5" style="font-weight: 600; color: #f39c12;">🚩 第二阶段：试销期里程碑</td>
+                </tr>
+                <tr>
+                    <td>M4</td>
+                    <td>试销启动</td>
+                    <td>第 7 天</td>
+                    <td>新品正式上架，首日销售≥15 份</td>
+                    <td>运营组</td>
+                </tr>
+                <tr>
+                    <td>M5</td>
+                    <td>假设验证完成</td>
+                    <td>第 10 天</td>
+                    <td>4 项核心假设验证完成，评审会通过</td>
+                    <td>店长</td>
+                </tr>
+                <tr style="background: rgba(52,152,219,0.05);">
+                    <td colspan="5" style="font-weight: 600; color: #3498db;">🚩 第三阶段：推广期里程碑</td>
+                </tr>
+                <tr>
+                    <td>M6</td>
+                    <td>推广启动</td>
+                    <td>第 11 天</td>
+                    <td>全渠道营销活动上线</td>
+                    <td>营销组</td>
+                </tr>
+                <tr>
+                    <td>M7</td>
+                    <td>销售达标</td>
+                    <td>第 21 天</td>
+                    <td>日均销量≥35 份，毛利率≥55%</td>
+                    <td>运营组</td>
+                </tr>
+                <tr style="background: rgba(39,174,96,0.05);">
+                    <td colspan="5" style="font-weight: 600; color: #27ae60;">🚩 第四阶段：稳定期里程碑</td>
+                </tr>
+                <tr>
+                    <td>M8</td>
+                    <td>稳定运营</td>
+                    <td>第 45 天</td>
+                    <td>日均销量≥50 份，毛利率≥60%，客诉率≤2%</td>
+                    <td>店长</td>
+                </tr>
+                <tr>
+                    <td>M9</td>
+                    <td>项目复盘</td>
+                    <td>第 60 天</td>
+                    <td>复盘报告完成，SOP 定稿，知识库更新</td>
+                    <td>店长</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="section-title">5.2 甘特图概览</h3>
+        <div class="highlight-box">
+            <h4>📋 任务时间轴</h4>
+            <p style="font-family: monospace; font-size: 13px; line-height: 2.2;">
+筹备期  [████████████] 第 1-6 天
+试销期          [████] 第 7-10 天
+推广期              [██████████] 第 11-21 天
+稳定期                        [████████████████] 第 22-60 天
+
+M1  M2  M3   M4  M5   M6     M7    M8       M9
+▼   ▼   ▼    ▼   ▼    ▼      ▼     ▼        ▼
+D3  D5  D6   D7  D10  D11    D21   D45      D60
+            </p>
+        </div>
+
+        <h3 class="section-title">5.3 关键路径</h3>
+        <div class="flow-diagram">
+            <div class="flow-step" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
+                <div>供应商开发</div>
+                <div style="font-size:11px;">D1-D3</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step" style="background: linear-gradient(135deg, #e74c3c, #c0392b);">
+                <div>设备到位</div>
+                <div style="font-size:11px;">D3-D5</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step" style="background: linear-gradient(135deg, #f39c12, #e67e22);">
+                <div>试销验证</div>
+                <div style="font-size:11px;">D7-D10</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step" style="background: linear-gradient(135deg, #3498db, #2980b9);">
+                <div>推广放量</div>
+                <div style="font-size:11px;">D11-D21</div>
+            </div>
+        </div>
+
+        <div class="highlight-box" style="border-left-color: #e74c3c;">
+            <h4 style="color: #e74c3c;">⚠️ 关键路径说明</h4>
+            <p>关键路径上的任一任务延误将导致整体项目延期。需重点监控供应商开发、设备到位、试销验证三个环节，确保按期完成。</p>
+        </div>
+    </div>
+
+    <!-- 第 6 部分：风险评估与应对 -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h2>⚠️ 第 6 部分 风险评估与应对策略</h2>
+            <span class="page-number">19</span>
+        </div>
+
+        <h3 class="section-title">6.1 风险识别矩阵（基于 ISO31000 框架）</h3>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>风险编号</th>
+                    <th>风险描述</th>
+                    <th>发生概率</th>
+                    <th>影响程度</th>
+                    <th>风险等级</th>
+                    <th>应对策略</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>R1</td>
+                    <td>供应商断供</td>
+                    <td>中</td>
+                    <td>严重</td>
+                    <td><span class="priority-tag priority-p0">高</span></td>
+                    <td>开发备选供应商，建立安全库存</td>
+                </tr>
+                <tr>
+                    <td>R2</td>
+                    <td>食品安全事故</td>
+                    <td>低</td>
+                    <td>灾难性</td>
+                    <td><span class="priority-tag priority-p0">高</span></td>
+                    <td>HACCP 体系监控，CCP 关键点 100% 检查</td>
+                </tr>
+                <tr>
+                    <td>R3</td>
+                    <td>销量不达预期</td>
+                    <td>中</td>
+                    <td>高</td>
+                    <td><span class="priority-tag priority-p1">中</span></td>
+                    <td>调整营销策略，优化产品组合</td>
+                </tr>
+                <tr>
+                    <td>R4</td>
+                    <td>核心员工流失</td>
+                    <td>中</td>
+                    <td>中</td>
+                    <td><span class="priority-tag priority-p1">中</span></td>
+                    <td>建立 AB 角机制，完善培训体系</td>
+                </tr>
+                <tr>
+                    <td>R5</td>
+                    <td>原材料价格上涨</td>
+                    <td>高</td>
+                    <td>中</td>
+                    <td><span class="priority-tag priority-p1">中</span></td>
+                    <td>签订长期协议，锁定价格</td>
+                </tr>
+                <tr>
+                    <td>R6</td>
+                    <td>设备故障</td>
+                    <td>低</td>
+                    <td>高</td>
+                    <td><span class="priority-tag priority-p2">低</span></td>
+                    <td>定期维护，建立应急维修渠道</td>
+                </tr>
+                <tr>
+                    <td>R7</td>
+                    <td>竞争店模仿</td>
+                    <td>高</td>
+                    <td>低</td>
+                    <td><span class="priority-tag priority-p2">低</span></td>
+                    <td>持续创新，建立品牌壁垒</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="section-title">6.2 高风险应对预案</h3>
+
+        <h4 class="subsection-title">R1 供应商断供应急预案</h4>
+        <div class="highlight-box">
+            <h4>📋 触发条件</h4>
+            <p>主供应商无法按约定时间供货，或供货品质连续 2 次不达标</p>
+        </div>
+        <div class="highlight-box" style="border-left-color: #27ae60;">
+            <h4 style="color: #27ae60;">✅ 响应流程</h4>
+            <ol class="content-list" style="margin-left: 20px;">
+                <li>立即启动备选供应商 A，下单采购 3 天用量</li>
+                <li>通知后厨调整备货计划，优先使用现有库存</li>
+                <li>采购主管 24 小时内完成备选供应商验货</li>
+                <li>72 小时内评估是否恢复主供应商或切换供应商</li>
+            </ol>
+        </div>
+
+        <h4 class="subsection-title">R2 食品安全事故应急预案</h4>
+        <div class="highlight-box">
+            <h4>📋 触发条件</h4>
+            <p>顾客反馈食品问题，或 CCP 监控点检测异常</p>
+        </div>
+        <div class="highlight-box" style="border-left-color: #27ae60;">
+            <h4 style="color: #27ae60;">✅ 响应流程</h4>
+            <ol class="content-list" style="margin-left: 20px;">
+                <li>立即停售涉事批次产品，封存待检</li>
+                <li>店长 1 小时内上报公司，启动应急预案</li>
+                <li>配合监管部门调查，提供完整溯源记录</li>
+                <li>48 小时内完成原因分析并发布整改报告</li>
+            </ol>
+        </div>
+
+        <h4 class="subsection-title">R3 销量不达预期应对预案</h4>
+        <div class="highlight-box">
+            <h4>📋 触发条件</h4>
+            <p>试销期日均销量<15 份，或推广期日均销量<25 份</p>
+        </div>
+        <div class="highlight-box" style="border-left-color: #27ae60;">
+            <h4 style="color: #27ae60;">✅ 响应流程</h4>
+            <ol class="content-list" style="margin-left: 20px;">
+                <li>分析销售数据，识别问题环节（流量/转化/复购）</li>
+                <li>调整营销投放策略，优化渠道组合</li>
+                <li>收集客户反馈，针对性优化产品或价格</li>
+                <li>必要时调整销售目标，重新评估市场定位</li>
+            </ol>
+        </div>
+
+        <h3 class="section-title">6.3 风险监控机制</h3>
+        <ul class="content-list">
+            <li><strong>监控频率：</strong>每日监控销售/食安指标，每周监控成本/库存指标</li>
+            <li><strong>预警阈值：</strong>设定红/黄/绿三级预警，黄色预警需说明原因，红色预警需启动应急预案</li>
+            <li><strong>责任人：</strong>店长负责整体风险监控，各模块负责人负责本模块风险指标</li>
+            <li><strong>汇报机制：</strong>黄色预警 24 小时内上报，红色预警立即上报</li>
+        </ul>
+    </div>
+
+    <!-- 第 7 部分：协同机制与 RACI 矩阵 -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h2>🤝 第 7 部分 协同机制与 RACI 矩阵</h2>
+            <span class="page-number">22</span>
+        </div>
+
+        <h3 class="section-title">7.1 会议机制</h3>
+
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>会议类型</th>
+                    <th>频率</th>
+                    <th>时长</th>
+                    <th>参与人</th>
+                    <th>主要议程</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>每日站会</td>
+                    <td>每日 9:00</td>
+                    <td>10 分钟</td>
+                    <td>店长、后厨主管、营销负责人</td>
+                    <td>昨日数据复盘、今日重点工作、需要协调事项</td>
+                </tr>
+                <tr>
+                    <td>周例会</td>
+                    <td>每周一 14:00</td>
+                    <td>60 分钟</td>
+                    <td>全体项目负责人</td>
+                    <td>上周目标达成情况、本周工作计划、风险问题讨论</td>
+                </tr>
+                <tr>
+                    <td>阶段评审会</td>
+                    <td>阶段结束时</td>
+                    <td>90 分钟</td>
+                    <td>店长、各模块负责人</td>
+                    <td>阶段目标验收、假设验证评审、下一阶段决策</td>
+                </tr>
+                <tr>
+                    <td>项目复盘会</td>
+                    <td>项目结束</td>
+                    <td>120 分钟</td>
+                    <td>全员</td>
+                    <td>目标达成复盘、经验教训总结、表彰与改进</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3 class="section-title">7.2 沟通机制</h3>
+        <ul class="content-list">
+            <li><strong>工作群：</strong>建立「牛舌新品专项」微信群，所有相关成员入群</li>
+            <li><strong>信息同步：</strong>重要信息（活动、变更、异常）需在群内@相关人员，并收到确认回复</li>
+            <li><strong>变更管理：</strong>任何计划变更需填写变更申请，经店长审批后执行</li>
+            <li><strong>问题升级：</strong>一线问题 30 分钟内未解决需升级至主管，2 小时未解决需升级至店长</li>
+        </ul>
+
+        <h3 class="section-title">7.3 RACI 责任矩阵</h3>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>任务/决策</th>
+                    <th>店长</th>
+                    <th>后厨主管</th>
+                    <th>营销负责人</th>
+                    <th>采购主管</th>
+                    <th>财务负责人</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>供应商选择</td>
+                    <td>A</td>
+                    <td>C</td>
+                    <td>-</td>
+                    <td>R</td>
+                    <td>I</td>
+                </tr>
+                <tr>
+                    <td>设备采购</td>
+                    <td>A</td>
+                    <td>R</td>
+                    <td>-</td>
+                    <td>C</td>
+                    <td>C</td>
+                </tr>
+                <tr>
+                    <td>营销方案</td>
+                    <td>A</td>
+                    <td>C</td>
+                    <td>R</td>
+                    <td>-</td>
+                    <td>C</td>
+                </tr>
+                <tr>
+                    <td>定价策略</td>
+                    <td>A</td>
+                    <td>C</td>
+                    <td>C</td>
+                    <td>C</td>
+                    <td>R</td>
+                </tr>
+                <tr>
+                    <td>SOP 制定</td>
+                    <td>A</td>
+                    <td>R</td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td>-</td>
+                </tr>
+                <tr>
+                    <td>阶段验收</td>
+                    <td>A</td>
+                    <td>C</td>
+                    <td>C</td>
+                    <td>C</td>
+                    <td>C</td>
+                </tr>
+                <tr>
+                    <td>应急决策</td>
+                    <td>A/R</td>
+                    <td>C</td>
+                    <td>C</td>
+                    <td>C</td>
+                    <td>C</td>
+                </tr>
+            </tbody>
+        </table>
+        <p style="font-size: 12px; color: #666; margin-top: 10px;">
+            <strong>图例：</strong>R=Responsible 负责执行 | A=Accountable 审批决策 | C=Consulted 被咨询 | I=Informed 被通知
+        </p>
+
+        <h3 class="section-title">7.4 数据看板</h3>
+        <div class="info-cards">
+            <div class="info-card">
+                <h4>销售数据</h4>
+                <p class="label">实时更新：销量、销售额、客单价、爆款排行</p>
+            </div>
+            <div class="info-card">
+                <h4>库存数据</h4>
+                <p class="label">每日更新：库存水位、周转天数、临期预警</p>
+            </div>
+            <div class="info-card">
+                <h4>食安数据</h4>
+                <p class="label">每餐次更新：CCP 检测记录、温度记录、消毒记录</p>
+            </div>
+            <div class="info-card">
+                <h4>成本数据</h4>
+                <p class="label">每周更新：成本占比、损耗率、人效、坪效</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 第 8 部分：标准化 SOP -->
+    <div class="page content-page">
+        <div class="page-header">
+            <h2>📖 第 8 部分 标准化 SOP 与知识沉淀</h2>
+            <span class="page-number">24</span>
+        </div>
+
+        <h3 class="section-title">8.1 SOP 文档体系</h3>
+
+        <h4 class="subsection-title">SOP-001 牛舌验收标准</h4>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>检查项目</th>
+                    <th>验收标准</th>
+                    <th>检查方法</th>
+                    <th>不合格处理</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>外观</td>
+                    <td>色泽粉红，无黑斑无异色</td>
+                    <td>目视检查</td>
+                    <td>整批退货</td>
+                </tr>
+                <tr>
+                    <td>气味</td>
+                    <td>无异味，有淡淡奶香味</td>
+                    <td>嗅觉检查</td>
+                    <td>整批退货</td>
+                </tr>
+                <tr>
+                    <td>温度</td>
+                    <td>冷冻≤-18℃，冷藏 0-4℃</td>
+                    <td>温度计测量</td>
+                    <td>拒收或降级使用</td>
+                </tr>
+                <tr>
+                    <td>包装</td>
+                    <td>包装完整，标签清晰</td>
+                    <td>目视检查</td>
+                    <td>拒收</td>
+                </tr>
+                <tr>
+                    <td>保质期</td>
+                    <td>剩余保质期≥2/3</td>
+                    <td>查看标签</td>
+                    <td>拒收</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4 class="subsection-title">SOP-002 牛舌处理流程</h4>
+        <div class="flow-diagram">
+            <div class="flow-step">
+                <div>解冻</div>
+                <div style="font-size:11px;">冷藏 24h</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <div>清洗</div>
+                <div style="font-size:11px;">流动水</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <div>去皮</div>
+                <div style="font-size:11px;">去除黏膜</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <div>切片</div>
+                <div style="font-size:11px;">3mm 厚</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <div>腌制</div>
+                <div style="font-size:11px;">30min</div>
+            </div>
+            <div class="flow-arrow">→</div>
+            <div class="flow-step">
+                <div>烤制</div>
+                <div style="font-size:11px;">2 分钟</div>
+            </div>
+        </div>
+        <ul class="content-list">
+            <li><strong>关键控制点：</strong>解冻温度≤10℃，腌制时间 30±5 分钟，烤制温度 220±10℃</li>
+            <li><strong>出品规格：</strong>每份 150g（熟重），切片厚度 3mm，长度 8-10cm</li>
+            <li><strong>保质期：</strong>腌制后 4 小时内使用完毕</li>
+        </ul>
+
+        <h4 class="subsection-title">SOP-003 CCP 监控流程</h4>
+        <table class="data-table">
+            <thead>
+                <tr>
+                    <th>CCP 点</th>
+                    <th>监控对象</th>
+                    <th>标准值</th>
+                    <th>监控频率</th>
+                    <th>纠偏措施</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>CCP1</td>
+                    <td>收货温度</td>
+                    <td>冷冻≤-18℃</td>
+                    <td>每批次</td>
+                    <td>拒收或销毁</td>
+                </tr>
+                <tr>
+                    <td>CCP2</td>
+                    <td>解冻温度</td>
+                    <td>≤10℃</td>
+                    <td>每批次</td>
+                    <td>调整解冻环境</td>
+                </tr>
+                <tr>
+                    <td>CCP3</td>
+                    <td>烤制温度</td>
+                    <td>中心温度≥70℃</td>
+                    <td>每餐次</td>
+                    <td>延长烤制时间</td>
+                </tr>
+                <tr>
+                    <td>CCP4</td>
+                    <td>成品保存</td>
+                    <td>≤4 小时</td>
+                    <td>持续</td>
+                    <td>销毁超时产品</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4 class="subsection-title">SOP-004 客诉处理流程</h4>
+        <ul class="content-list">
+            <li><strong>响应时效：</strong>5 分钟内响应，30 分钟内给出解决方案</li>
+            <li><strong>处理流程：</strong>倾听→道歉→记录→解决→跟进→复盘</li>
+            <li><strong>授权机制：</strong>店员可赠送饮品，店长可免单，超出权限需上报</li>
+            <li><strong>记录要求：</strong>所有客诉需录入系统，形成客诉台账</li>
+            <li><strong>闭环要求：</strong>每周复盘客诉，形成改进措施并跟踪落实</li>
+        </ul>
+
+        <h3 class="section-title">8.2 知识沉淀</h3>
+        <div class="highlight-box">
+            <h4>📚 知识库目录</h4>
+            <ul class="content-list">
+                <li>牛舌产品知识（产地、特性、处理方法）</li>
+                <li>常见问题 Q&A（顾客问答话术）</li>
+                <li>优秀案例集（成功营销案例、服务案例）</li>
+                <li>失败教训集（客诉案例、异常处理案例）</li>
+                <li>培训资料（新员工培训、技能提升培训）</li>
+            </ul>
+        </div>
+
+        <h3 class="section-title">8.3 持续改进机制</h3>
+        <ul class="content-list">
+            <li><strong>改进提案：</strong>鼓励员工提出改进建议，采纳后给予奖励</li>
+            <li><strong>PDCA 循环：</strong>每月进行一次 PDCA 循环，持续优化 SOP</li>
+            <li><strong>版本管理：</strong>SOP 文档实施版本管理，变更需审批并培训</li>
+            <li><strong>知识分享：</strong>每周安排一次知识分享会，交流经验心得</li>
+        </ul>
+
+        <div class="highlight-box" style="border-left-color: #27ae60; background: linear-gradient(135deg, rgba(39,174,96,0.1), rgba(46,204,113,0.05));">
+            <h4 style="color: #27ae60;">✅ 项目交付清单</h4>
+            <ul class="content-list">
+                <li>✓ 供应商评估报告及合作协议</li>
+                <li>✓ 牛舌处理 SOP 文档（含 CCP 监控流程）</li>
+                <li>✓ 营销推广方案及执行记录</li>
+                <li>✓ 销售数据分析报告（日报/周报/复盘报告）</li>
+                <li>✓ 客诉处理台账及改进记录</li>
+                <li>✓ 项目复盘报告及知识库更新记录</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 封底 -->
+    <div class="page back-cover">
+        <span class="cover-decoration tl">🔥</span>
+        <span class="cover-decoration tr">🍢</span>
+        <span class="cover-decoration bl">🍖</span>
+        <span class="cover-decoration br">🔥</span>
+
+        <div class="back-cover-brand">🍢</div>
+
+        <h2 class="back-cover-title">小明烧烤</h2>
+        <p class="back-cover-slogan">用心烤制每一份美味 · 用爱服务每一位顾客</p>
+
+        <div class="back-cover-contact">
+            <p><strong>📍 门店地址：</strong>XX 市 XX 区 XX 路 XX 号</p>
+            <p><strong>📞 联系电话：</strong>XXX-XXXX-XXXX</p>
+            <p><strong>📱 官方微信：</strong>xiaomingshaokao</p>
+            <p><strong>🌐 官方网站：</strong>www.xiaomingshaokao.com</p>
+        </div>
+
+        <div class="back-cover-footer">
+            <p>© 2026 小明烧烤 版权所有</p>
+            <p>本策划案为内部资料，未经授权请勿外传</p>
+            <p style="margin-top: 20px; font-size: 11px; opacity: 0.6;">
+                编制：运营策划部 | 版本：V1.0 | 日期：2026 年 3 月 31 日
+            </p>
+        </div>
+    </div>
+
+</body>
+</html>
